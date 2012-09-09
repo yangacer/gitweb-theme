@@ -45,12 +45,16 @@ a { outline: none; }
 ---------------------------------------------------------------------------- */
 
 body {
-  font-family: "Monaco", "Courier New", monospace;
-  font-size: 12px;
-  line-height: 1.5;
+  font: 13px Helvetica,arial,freesans,clean,sans-serif;
+  line-height: 1.4;
   margin: 0;
   background-color: #fff;
   color: #000000;
+}
+
+/* Monospaced Fonts */
+.sha1, .mode, .diff_tree .list, .pre, .diff, .patchset {
+  font-family: 'Consolas','Bitstream Vera Sans Mono',monospace;
 }
 
 a:link, a:visited {
@@ -127,7 +131,9 @@ td, th {
 }
 
 .page_header img.logo {
-  display: none;
+  position: relative;
+  top: 7px;
+  margin-right: 5px;
 }
 
 /* Page Footer
@@ -196,6 +202,10 @@ a.rss_logo:hover {
   font-weight: normal;
 }
 
+.project_list th {
+  font-weight: bold;
+}
+
 .project_list tr,
 .shortlog tr,
 .tree tr,
@@ -225,6 +235,7 @@ th .header {
   background: transparent;
   border: 0;
   padding: 0;
+  font-weight: bold;
 }
 
 .tree {
@@ -236,6 +247,10 @@ th .header {
   position: absolute;
   right: 4%;
   top: 15px;
+}
+
+.projsearch a {
+  display: none;
 }
 
 .commit_search {
@@ -340,7 +355,7 @@ th .header {
 }
 
 .patch > .header {
-  width: 98.5%;
+  width: 99%;
 }
 
 /* Refs
@@ -378,6 +393,20 @@ span.refs a {
 /* Diffs
 ---------------------------------------------------------------------------- */
 
+div.diff.to_file a.path,
+div.diff.to_file {
+  color: #007000;
+}
+
+div.diff.from_file a.path,
+div.diff.from_file {
+  color: #aa0000;
+}
+
+.patch .header {
+  margin: 0;
+}
+
 .patchset {
   overflow-x: auto;
   overflow-y: hidden;
@@ -403,22 +432,41 @@ span.refs a {
   width: 50%;
 }
 
-.chunk_block.chg .diff {
-  background-color: #ffffe0;
+.extended_header {
+  width: 99.5%;
 }
 
-.chunk_block.ctx .diff .ctx {
-  color: #404040;
+div.chunk_block {
+  overflow: hidden;
 }
 
-.chunk_block.chg .diff.rem {
-  background-color: #ffdddd;
+div.chunk_block div.old {
+  float: left;
+  width: 50%;
+  overflow: hidden;
+  border-right: 5px solid #EAF2F5;
 }
 
-.chunk_block.chg .diff.add {
-  background-color: #ddffdd;
+div.chunk_block.rem,
+div.chunk_block.add {
+  background: transparent;
 }
 
+div.chunk_block div.old .add,
+div.chunk_block div.old .rem {
+  padding-right: 3px;
+}
+
+div.chunk_block div.new .add,
+div.chunk_block div.new .rem {
+  padding-left: 3px;
+}
+
+div.chunk_block div.new {
+  margin-left: 50%;
+  width: 50%;
+  border-left: 5px solid #EAF2F5;
+}
 
 /* Age
 ---------------------------------------------------------------------------- */
@@ -504,4 +552,3 @@ td.pre, div.pre, div.diff {
 .kwb    { color:#6b3099; }
 .kwc    { color:#d4663d; }
 .kwd    { color:#2928ff; }
-
