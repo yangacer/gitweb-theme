@@ -388,12 +388,37 @@ span.refs a {
   color: #999;
 }
 
-.rem {
-  background: #ffdddd;
+.chunk_block {
+  overflow: hidden;
 }
-.add {
-  background: #ddffdd;
+
+.chunk_block .old {
+  float: left;
+  width: 50%;
+  overflow: hidden;
 }
+
+.chunk_block .new {
+  margin-left: 50%;
+  width: 50%;
+}
+
+.chunk_block.chg .diff {
+  background-color: #ffffe0;
+}
+
+.chunk_block.ctx .diff .ctx {
+  color: #404040;
+}
+
+.chunk_block.chg .diff.rem {
+  background-color: #ffdddd;
+}
+
+.chunk_block.chg .diff.add {
+  background-color: #ddffdd;
+}
+
 
 /* Age
 ---------------------------------------------------------------------------- */
